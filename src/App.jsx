@@ -3,6 +3,7 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import { pink } from '@mui/material/colors'
 import HomeIcon from '@mui/icons-material/Home'
+import TabIndicator from '@mui/material/Tabs'
 
 function App() {
   return (

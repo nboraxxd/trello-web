@@ -1,4 +1,5 @@
 import { Stack } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import { pink } from '@mui/material/colors'
@@ -7,13 +8,15 @@ import HomeIcon from '@mui/icons-material/Home'
 function App() {
   return (
     <>
-      <p>Trung Quan dev</p>
+      <div>Trung Quan dev</div>
+      <Typography variant="body" color="text.secondary">
+        h1. Heading
+      </Typography>
       <Stack spacing={2} direction="row">
         <Button variant="text">Text</Button>
         <Button variant="contained">Contained</Button>
         <Button variant="outlined">Outlined</Button>
       </Stack>
-
       <Box
         sx={{
           '& > :not(style)': {

@@ -3,12 +3,11 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import { pink } from '@mui/material/colors'
 import HomeIcon from '@mui/icons-material/Home'
-import TabIndicator from '@mui/material/Tabs'
 
 function App() {
   return (
     <>
-      <h1>Trung Quan dev</h1>
+      <p>Trung Quan dev</p>
       <Stack spacing={2} direction="row">
         <Button variant="text">Text</Button>
         <Button variant="contained">Contained</Button>

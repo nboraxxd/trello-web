@@ -1,11 +1,5 @@
-import HomeIcon from '@mui/icons-material/Home'
-import { Stack } from '@mui/material'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
-import { pink } from '@mui/material/colors'
 import { useColorScheme } from '@mui/material/styles'
-
 import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
@@ -13,6 +7,7 @@ import Select from '@mui/material/Select'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import SettingsBrightnessOutlinedIcon from '@mui/icons-material/SettingsBrightnessOutlined'
+import Container from '@mui/material/Container'
 
 function ModeSelect() {
   const { mode, setMode } = useColorScheme()
@@ -51,52 +46,42 @@ function ModeSelect() {
   )
 }
 
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme()
-
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === 'light' ? 'dark' : 'light')
-      }}
-    >
-      {mode === 'light' ? 'Turn dark' : 'Turn light'}
-    </Button>
-  )
-}
-
 function App() {
   return (
-    <>
-      <ModeSelect />
-      <hr />
-      <ModeToggle />
-      <hr />
-      <div>Trung Quan dev</div>
-      <Typography variant="body" color="text.secondary">
-        h1. Heading
-      </Typography>
-      <Stack spacing={2} direction="row">
-        <Button variant="text">Text</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
-      </Stack>
+    <Container sx={{ height: '100vh' }} maxWidth={false} disableGutters>
       <Box
         sx={{
-          '& > :not(style)': {
-            m: 2,
-          },
+          display: 'flex',
+          alignItems: 'center',
+          width: '100%',
+          height: (theme) => theme.trello.appBarHeight,
+          backgroundColor: 'primary.light',
         }}
       >
-        <HomeIcon />
-        <HomeIcon color="primary" />
-        <HomeIcon color="secondary" />
-        <HomeIcon color="success" />
-        <HomeIcon color="action" />
-        <HomeIcon color="disabled" />
-        <HomeIcon sx={{ color: pink[500] }} />
+        <ModeSelect />
       </Box>
-    </>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          width: '100%',
+          height: (theme) => theme.trello.boardBarHeight,
+          backgroundColor: 'primary.dark',
+        }}
+      >
+        Board Bar
+      </Box>
+
+      <Box
+        sx={{
+          width: '100%',
+          height: (theme) => `calc(100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight})`,
+          backgroundColor: 'primary.main',
+        }}
+      >
+        Board content
+      </Box>
+    </Container>
   )
 }
 

@@ -13,7 +13,7 @@ export default function ModeSelect() {
   const { mode, setMode } = useColorScheme()
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+    <FormControl size="small">
       <InputLabel id="label-select-dark-light-mode">Mode</InputLabel>
       <Select
         labelId="label-select-dark-light-mode"
@@ -24,7 +24,8 @@ export default function ModeSelect() {
       >
         <MenuItem value="light">
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <LightModeIcon fontSize="small" /> Light
+            <LightModeIcon fontSize="small" />
+            <span>Light</span>
           </Box>
         </MenuItem>
         <MenuItem value="dark">

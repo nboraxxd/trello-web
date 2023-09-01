@@ -12,17 +12,17 @@ import AvatarGroup from '@mui/material/AvatarGroup'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const MENU_STYLES = {
-  px: '5px',
+  px: '8px',
   border: 'none',
   borderRadius: '4px',
-  bgcolor: 'white',
-  color: 'primary.main',
+  bgcolor: 'transparent',
+  color: 'white',
   '&:hover': {
     bgcolor: 'primary.50',
   },
   '& .MuiSvgIcon-root': {
     ml: 0,
-    color: 'primary.main',
+    color: 'white',
   },
   '& .MuiChip-label': {
     pr: 0,
@@ -40,12 +40,13 @@ export default function BoardBar() {
         width: '100%',
         height: (theme) => theme.trello.boardBarHeight,
         px: 2,
-        borderTop: '1px solid #00bfa5',
+        // borderBottom: '1px solid #00bfa5',
         overflowX: 'auto',
+        bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
       }}
     >
       {/* Left */}
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Chip icon={<DashboardIcon />} label="TrungQuanDev MERN Stack Board" clickable sx={MENU_STYLES} />
         <Chip icon={<VpnLockIcon />} label="Public/Private Workspace" clickable sx={MENU_STYLES} />
         <Chip icon={<AddToDriveIcon />} label="Add To Google Drive" clickable sx={MENU_STYLES} />
@@ -56,10 +57,18 @@ export default function BoardBar() {
 
       {/* Right */}
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Button variant="outlined" sx={{ alignItems: 'center' }} startIcon={<PersonAddIcon />}>
-          <Box component="span" sx={{ alignContent: 'center' }}>
-            Create
-          </Box>
+        <Button
+          variant="outlined"
+          sx={{
+            color: 'white',
+            borderColor: 'white',
+            ':hover': {
+              borderColor: 'grey.300',
+            },
+          }}
+          startIcon={<PersonAddIcon />}
+        >
+          Invite
         </Button>
         <AvatarGroup
           max={4}

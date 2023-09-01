@@ -13,13 +13,46 @@ export default function ModeSelect() {
   const { mode, setMode } = useColorScheme()
 
   return (
-    <FormControl size="small" sx={{ minWidth: '120px' }}>
-      <InputLabel id="label-select-dark-light-mode">Mode</InputLabel>
+    <FormControl
+      size="small"
+      sx={{
+        minWidth: '122px',
+        ':hover label': {
+          color: 'grey.200',
+        },
+      }}
+    >
+      <InputLabel
+        id="label-select-dark-light-mode"
+        sx={{
+          color: 'white',
+          '&.Mui-focused': {
+            color: 'grey.300',
+          },
+        }}
+      >
+        Mode
+      </InputLabel>
       <Select
         labelId="label-select-dark-light-mode"
         id="select-dark-light-mode"
         value={mode}
         label="Mode"
+        sx={{
+          color: 'white',
+          '.MuiSvgIcon-root': {
+            color: 'white',
+          },
+          '.MuiOutlinedInput-notchedOutline': {
+            borderColor: 'white',
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'grey.300',
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'grey.400',
+          },
+        }}
         onChange={(ev) => setMode(ev.target.value)}
       >
         <MenuItem value="light">
